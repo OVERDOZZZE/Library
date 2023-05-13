@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for i in books%}
+    <ul>
+        <li>
+            <a href="book_detail/{{ i.pk }}/">{{i.title}}</a>/
+            {{i.author.name}}/
+            {{i.publisher.name}}/
+            {{i.publication_date}}
+        </li>
+    </ul>
+    {% endfor %}
+</body>
+</html>
