@@ -1,12 +1,14 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/det.css' %}">
     <title>Title</title>
 </head>
 <body>
     <div>
-        <img src="{{ book.cover_photo.url }}" alt="" width="250">
+        <img src="{{ book.cover_photo.url }}" alt="" width="600">
         <p>{{book.title}}</p>
         <p>Author: {{book.author.name}}</p>
         <p>Publisher: {{book.publisher.name}}</p>

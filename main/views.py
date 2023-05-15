@@ -1,10 +1,14 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from .models import Books
 from .forms import BookForm
 
 
 def books(request):
-    books = Books.objects.all()
+    books_list = Books.objects.all()
+    paginator = Paginator(books_list, 6)
+    page = request.GET.get('page')
+    books = paginator.get_page(page)
     context = {'books': books}
     return render(request, 'main/books.html', context=context)
 

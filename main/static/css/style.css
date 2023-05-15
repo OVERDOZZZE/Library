@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f7f7f7;
+  position: relative;
+  transition: background-color 0.5s ease-out, color 0.5s ease-out, font-size 0.5s ease-out;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 48px;
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #333;
+  animation: slide-up 0.5s ease forwards;
+
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.book-item {
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  animation: fade-in 0.5s ease forwards;
+}
+
+
+.book-item:hover {
+  transform: translateY(-10px);
+}
+
+.book-item a {
+  display: block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #04073d
+
+}
+
+.book-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: all 1s ease-in-out;
+}
+
+.book-item img:hover {
+  animation: pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.book-item h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+
+}
+
+.book-item p {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -30px;
+
+}
+
+.pagination a {
+  color: #04073d;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 0 10px;
+  border: 1px solid #04073d;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+  background-color: #04073d;
+  color: #fff;
+}
+
+.pagination {
+  position: absolute;
+  bottom: 0;
+
+}
+.add-book {
+  position: fixed;
+  top: 30px;
+  right: 210px;
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: #04073d;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.add-book::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.add-book:hover {
+  background-color: transparent;
+  color: #04073d;
+}
+
+.add-book:hover::before {
+  width: 100%;
+}
+
+.add-book:hover span {
+  color: #000;
+}
+

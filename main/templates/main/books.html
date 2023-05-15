@@ -1,19 +1,41 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="static 'js/main.js'"></script>
 </head>
 <body>
-    {% for i in books%}
-    <ul>
-        <li>
-            <a href="book_detail/{{ i.pk }}/">{{i.title}}</a>/
-            {{i.author.name}}/
-            {{i.publisher.name}}/
-            {{i.publication_date}}
-        </li>
-    </ul>
+    <a href="add_book/"><button class="add-book">Add Book</button></a>
+    <h1>Books List</h1>
+  <div class="book-list">
+    {% for book in books %}
+      <div class="book-item">
+        <h2><a href="book_detail/{{ book.pk }}/">{{ book.title }}</a></h2>
+        <a href="book_detail/{{book.pk}}/"><img src="{{ book.cover_photo.url }}" alt="{{ book.title }}" width="300"></a>
+        <p>Author: {{ book.author.name }}</p>
+        <p>Publisher: {{ book.publisher.name }}</p>
+        <p>Publication date: {{ book.publication_date }}</p>
+
+      </div>
     {% endfor %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if books.has_previous %}
+                <a href="?page=1"> <</a>
+                <a href="?page={{ books.previous_page_number }}">></a>
+            {% endif %}
+
+
+            {% if books.has_next %}
+                <a href="?page={{ books.next_page_number }}"><</a>
+                <a href="?page={{ books.paginator.num_pages }}">> </a>
+            {% endif %}
+
+        </span>
+    </div>
+</div>
 </body>
 </html>
